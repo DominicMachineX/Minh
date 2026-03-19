@@ -20,7 +20,7 @@ const observer = new IntersectionObserver(entries => {
 faders.forEach(el => observer.observe(el));
 
 // Load projects
-fetch("../json/data.json")
+fetch("json/data.json")
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById("project-list");
