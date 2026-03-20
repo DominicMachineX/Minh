@@ -3,6 +3,9 @@
   --surface: #1f2937;
   --text: #e5e7eb;
   --accent: #38bdf8;
+
+  --contact-color:#437d95;
+  --contact-hover-color: #38bdf8;
 }
 
 * {
@@ -116,6 +119,13 @@ nav a {
   transform: translateY(0);
 }
 
+.contact a {
+  color: var(--contact-color);
+}
+.contact a:hover {
+  color: var(--contact-hover-color);
+}
+
 /* Tablet */
 @media (min-width: 768px) {
   .skills-grid {
@@ -158,4 +168,9 @@ nav a {
     flex-direction: column;
     text-align: center;
   }
+}
+
+
+#phonenumber {
+  cursor: pointer;
 }

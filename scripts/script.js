@@ -39,3 +39,19 @@ fetch("json/data.json")
       container.appendChild(div);
     });
   });
+
+
+  // Copy function
+
+// Copy phone number
+const phoneEl = document.getElementById("phonenumber");
+
+if (phoneEl) {
+  phoneEl.addEventListener("click", function () {
+    const text = "0375011575";
+
+    navigator.clipboard.writeText(text)
+      .then(() => console.log("Copied:", text))
+      .catch(err => console.error(err));
+  });
+}
