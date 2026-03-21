@@ -20,7 +20,7 @@ const observer = new IntersectionObserver(entries => {
 faders.forEach(el => observer.observe(el));
 
 // Load projects
-fetch("json/data.json")
+fetch("json/projects.json")
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById("project-list");
@@ -37,6 +37,35 @@ fetch("json/data.json")
       `;
 
       container.appendChild(div);
+    });
+  });
+
+  // Load experiments
+fetch("json/experiments.json")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("experiment-list");
+
+    data.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "experiment-card";
+
+      div.innerHTML = `
+       <div class="experiment-content">
+        <h4>${p.name}</h4>
+        <p>${p.description}</p>
+        <p><strong>Role:</strong> ${p.role}</p>
+        <p><strong>Date:</strong> ${p.date}</p>
+        <a href="${p.link}" target="_blank">View Project</a>
+       </div>
+       <div class="experiment-image">
+        <img src="${p.image}" alt="${p.name}">
+       </div>
+      `
+
+      container.appendChild(div);
+
+      console.log(p.image);
     });
   });
 
