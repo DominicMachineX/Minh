@@ -41,24 +41,24 @@ fetch("json/projects.json")
   });
 
   // Load experiments
-fetch("json/experiments.json")
+fetch("json/experiences.json")
   .then(res => res.json())
   .then(data => {
-    const container = document.getElementById("experiment-list");
+    const container = document.getElementById("experience-list");
 
     data.forEach(p => {
       const div = document.createElement("div");
-      div.className = "experiment-card";
+      div.className = "experience-card";
 
       div.innerHTML = `
-       <div class="experiment-content">
+       <div class="experiences-content">
         <h4>${p.name}</h4>
         <p>${p.description}</p>
         <p><strong>Role:</strong> ${p.role}</p>
         <p><strong>Date:</strong> ${p.date}</p>
         <a href="${p.link}" target="_blank">View Project</a>
        </div>
-       <div class="experiment-image">
+       <div class="experiences-image">
         <img src="${p.image}" alt="${p.name}">
        </div>
       `
@@ -84,3 +84,23 @@ if (phoneEl) {
       .catch(err => console.error(err));
   });
 }
+
+//backtotop
+const btn = document.getElementById("backToTop");
+
+// Hiện khi scroll xuống
+window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+});
+
+// Click để scroll lên top
+btn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
